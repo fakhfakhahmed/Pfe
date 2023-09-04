@@ -36,4 +36,5 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Demande> demandes =new HashSet<>();
+    private Set<String> interestingBlogIds = new HashSet<>();
 }

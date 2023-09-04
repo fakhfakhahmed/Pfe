@@ -9,10 +9,9 @@ import java.util.List;
 
 public interface IBlogService {
     Blog AddBlog(Blog blog);
-
-    void AddBlogToUser(Blog blog) throws Exception;
     Blog UpdateBlog(Blog blog);
     void DeleteBlog(Blog blog);
     List<Blog> GetAllBlog();
     Blog GetBlog(String BlogId);
+    void toggleInterestingBlog(String blogId) throws  Exception;
 }

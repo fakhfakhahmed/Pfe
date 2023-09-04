@@ -9,22 +9,28 @@
         <outputRelativeToContentRoot value="true" />
         <module name="authorization" />
         <module name="resources" />
+        <module name="notification" />
         <module name="gateway" />
         <module name="discovery" />
+        <module name="Notification" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="authorization" target="11" />
       <module name="discovery" target="11" />
       <module name="gateway" target="11" />
+      <module name="notification" target="11" />
+      <module name="Notification" target="11" />
       <module name="resources" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Notification" options="-parameters" />
       <module name="authorization" options="-parameters" />
       <module name="discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="notification" options="-parameters" />
       <module name="resources" options="-parameters" />
     </option>
   </component>

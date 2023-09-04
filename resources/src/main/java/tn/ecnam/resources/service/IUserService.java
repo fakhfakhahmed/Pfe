@@ -1,5 +1,6 @@
 package tn.ecnam.resources.service;
 
+import tn.ecnam.resources.entity.Blog;
 import tn.ecnam.resources.entity.User;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface IUserService {
     void deleteUser(User user);
     List<User> getAllUsers();
     User getUserById(String UserId);
+    public List<Blog> getInterestingBlogs(String userId);
 }

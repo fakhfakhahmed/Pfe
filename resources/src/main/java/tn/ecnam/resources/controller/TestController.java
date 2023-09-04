@@ -18,7 +18,7 @@ public class TestController {
 		return new ResponseEntity<>("hello world admin" , HttpStatus.OK);
 	}
 	@GetMapping("hello-user")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_LIVREUR')")
 	public ResponseEntity<String> helloWorldUser(){
 		return new ResponseEntity<>("hello world user", HttpStatus.OK);
 	}

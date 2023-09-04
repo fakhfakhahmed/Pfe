@@ -6,7 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import javax.xml.stream.events.Comment;
+import java.util.*;
 
 @Getter
 @Setter
@@ -21,9 +22,14 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String id;
     Date dateCreation;
-    String comment;
     String contenu;
     @NotNull
     @Enumerated(EnumType.STRING)
     CategoryBlog TypeBlog ;
+    private List<Comment> comments = new ArrayList<>();
+    private Set<String> interestingUserIds = new HashSet<>();
+    private Set<String> likedUserIds = new HashSet<>();
 }
+
+
+

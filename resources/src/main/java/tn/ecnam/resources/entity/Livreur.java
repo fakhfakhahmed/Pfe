@@ -22,6 +22,7 @@ public class Livreur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String id;
     String firstName;
+
     String userName;
     String lastName;
     String mail;
@@ -29,4 +30,6 @@ public class Livreur {
 
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Demande> demandes =new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Reclamation> reclamations=new HashSet<>() ;
 }

@@ -12,7 +12,6 @@ import tn.ecnam.resources.entity.Livreur;
 import tn.ecnam.resources.entity.User;
 import tn.ecnam.resources.service.ILivreurService;
 import tn.ecnam.resources.service.IUserService;
-
 @Component
 @Slf4j
 public class QueueConsumer {

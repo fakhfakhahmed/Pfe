@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>tn.ecnam</groupId>
-    <artifactId>resources</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>resources</name>
-    <description>resources</description>
+    <artifactId>notification</artifactId>
+    <version>1.0.0</version>
+    <name>notification</name>
+    <description>notification</description>
     <properties>
         <java.version>11</java.version>
         <mapper.version>2.4.5</mapper.version>
@@ -35,6 +35,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>8.22.0</version> <!-- Use the latest version -->
         </dependency>
         <!--Dns  client-->
         <dependency>
@@ -83,7 +89,6 @@
             <version>${mapper.version}</version>
             <scope>compile</scope>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -138,5 +143,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>

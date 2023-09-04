@@ -22,10 +22,14 @@ public class Demande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String id;
-    String EtatDemande;
+    @Column(columnDefinition = "VARCHAR(255) DEFAULT 'Pending'")
+    String etatDemande;
     Date date;
+    String location;
 
-}
+    }
+
+
 
 
 

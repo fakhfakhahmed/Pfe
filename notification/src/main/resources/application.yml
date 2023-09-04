@@ -1,20 +1,14 @@
 server:
-  port: 8282
+  port: 1899
 
 
 spring:
   application:
-    name: RESOURCES-SERVER
+    name: NOTIFICATION-SERVER
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   main:
     allow-circular-references: true
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/Recycle
-      database: Recycle
-      host: localhost
-      port: 27017
   rabbitmq:
     host: localhost
     port: 5672
@@ -29,15 +23,11 @@ eureka:
       true
     fetchRegistry:
       true
-security:
-  oauth2:
-    resource:
-      token-info-uri:
-        http://localhost:22/oauth/check_token
-    client:
-      client-id: client
-      client-secret: TESTtest1234
 
 queue:
-  name: myQueue
   notification-queue: NotificationQueue
+
+twilio:
+  accountSid: AC72f94813ad8924d467e7351a86480e20
+  authToken: 003639d5f860e41087092277f6e12d98
+  phoneNumber: +19843052344

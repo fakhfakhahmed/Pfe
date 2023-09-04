@@ -9,11 +9,12 @@ import tn.ecnam.resources.repository.UserRepository;
 import tn.ecnam.resources.service.IBlogService;
 import tn.ecnam.resources.service.IUserService;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Service
-public class BlogService implements IBlogService {
+public class  BlogService implements IBlogService {
     @Autowired
     BlogRepository br;
     @Autowired
@@ -22,19 +23,9 @@ public class BlogService implements IBlogService {
     private UserRepository ur;
     @Override
     public Blog AddBlog(Blog blog) {
+        blog.setDateCreation(new Date());
         return br.save(blog);
     }
-
-    @Override
-    public void AddBlogToUser(Blog blog) throws Exception {
-        User user = us.LoggedInUser();
-        Set<Blog> blogs = user.getBlogs();
-        blogs.add(blog);
-        user.setBlogs(blogs);
-        ur.save(user);
-
-    }
-
     @Override
     public Blog UpdateBlog(Blog blog) {
         return br.save(blog);
@@ -54,5 +45,22 @@ public class BlogService implements IBlogService {
     public Blog GetBlog(String BlogId) {
         return br.findById(BlogId).orElse(null);
 
+    }
+
+    public void toggleInterestingBlog(String blogId) throws  Exception {
+        User user = us.LoggedInUser();
+        Blog blog = br.findById(blogId)
+                .orElseThrow(() -> new EntityNotFoundException("Blog not found with ID: " + blogId));
+
+        if (user.getInterestingBlogIds().contains(blogId)) {
+            user.getInterestingBlogIds().remove(blogId);
+            blog.getInterestingUserIds().remove(user.getId());
+        } else {
+            user.getInterestingBlogIds().add(blogId);
+            blog.getInterestingUserIds().add(user.getId());
+        }
+
+        ur.save(user);
+        br.save(blog);
     }
 }

@@ -17,7 +17,6 @@ import javax.ws.rs.DefaultValue;
 @FieldDefaults (level = AccessLevel.PRIVATE)
 @Document("Product")
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String id;
@@ -28,8 +27,4 @@ public class Product {
      @Enumerated(EnumType.STRING)
      CategoryProduct Categorie ;
     int nbrStock;
-
-
-
-
 }
